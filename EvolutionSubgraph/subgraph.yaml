@@ -1,0 +1,29 @@
+specVersion: 0.0.2
+description: Evolution subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Evolution
+    network: mumbai
+    source:
+      address: "0x584AbC66B14C4d14955957238Cc5967A9617b931"
+      abi: Evolution
+      startBlock: 23981009
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+
+        - RacerDepositEvent
+
+      abis:
+        - name: Evolution
+          file: ./abis/Evolution.json
+      eventHandlers:
+
+        - event: RacerDepositEvent(bool,address,address,uint256,uint256)
+          handler: handleRacerDepositEvent
+
+      file: ./src/mapping.ts
