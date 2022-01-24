@@ -1,0 +1,8 @@
+type RacerDepositEvent @entity {
+	id: ID!
+	status: Boolean!
+	seller: Bytes!
+	buyer: Bytes!
+	tokenId: BigInt!
+	timestamp: BigInt!
+  }
